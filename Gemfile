@@ -8,6 +8,9 @@ gem 'rails', '3.2.13'
 gem 'sqlite3'
 
 
+gem 'execjs' 
+gem 'therubyracer'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,7 +26,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -36,3 +39,30 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# Development tools
+group :development do 
+  gem "debugger"
+  gem "better_errors"
+  gem 'railroady'
+end
+
+# Formatting
+gem 'slim'
+gem 'slim-rails'
+gem 'compass'
+gem "twitter-bootstrap-rails"
+
+#Active Record Cleaner thang
+gem "squeel"
+
+# Paginations
+gem 'kaminari'
+
+# Geo locations
+gem "geocoder"
+gem 'exifr', :git => 'git://github.com/picuous/exifr.git'
+
+#paperclip
+gem 'paperclip'
+gem "jquery-fileupload-rails"

@@ -1,0 +1,16 @@
+doctype
+html
+  head
+    title Deutschland
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body id=="#{controller.controller_name}_#{controller.action_name}"
+    .container
+      -if current_user
+        .row
+          .nav.nav-pills.pull-right
+            li=link_to "Create a new post", new_post_path
+            li=link_to "Logout", sessions_logout_path
+      == yield
+      footer

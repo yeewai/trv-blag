@@ -1,0 +1,18 @@
+h1 Log in
+- flash.each do |key, msg|
+  .error
+    = msg
+
+= form_tag sessions_create_path, :class=>"form-horizontal" do
+  .control-group
+    =label_tag :name, 'Name', :class=>"control-label"
+    .controls
+      =text_field_tag 'name', nil, placeholder: 'Name'
+  .control-group
+    =label_tag :pass, 'Password', :class=>"control-label"
+    .controls
+      =password_field_tag 'pass', nil, placeholder: 'Password'
+  .control-group
+    .controls
+      =submit_tag "Log in", :class=>"btn"
+
