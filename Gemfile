@@ -53,6 +53,8 @@ gem 'slim-rails'
 gem 'compass'
 gem "twitter-bootstrap-rails"
 
+gem 'bb-ruby'
+
 #Active Record Cleaner thang
 gem "squeel"
 

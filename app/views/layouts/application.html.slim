@@ -10,7 +10,10 @@ html
       -if current_user
         .row
           .nav.nav-pills.pull-right
+            -if @post
+              li= link_to 'Edit post', edit_post_path(@post)
             li=link_to "Create a new post", new_post_path
             li=link_to "Logout", sessions_logout_path
+          h1=link_to "Deutschland, Deutschland", root_path
       == yield
       footer

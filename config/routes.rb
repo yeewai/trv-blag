@@ -1,15 +1,11 @@
 Deutschland::Application.routes.draw do
-  get "photos/index"
-
-  get "photos/create"
-
-  get "photos/destroy"
 
   get "sessions/login"
   post "sessions/create"
   get "sessions/logout"
 
   resources :posts
+  resources :photos, :only => ["index", "create", "destroy"]
 
 
   # The priority is based upon order of creation:

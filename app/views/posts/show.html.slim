@@ -1,30 +1,13 @@
 p#notice = notice
 
-p
-  strong Title:
+h2
   = @post.title
-p
-  strong Slug:
-  = @post.slug
-p
-  strong Content:
-  = @post.content
-p
-  strong User:
-  = @post.user_id
-p
-  strong Address:
+small 
+  | Written by 
+  =@post.user.name
+  |  on 
+  =translate_time @post.created_at
+  br
+  | At: 
   = @post.address
-p
-  strong Latitude:
-  = @post.latitude
-p
-  strong Longitude:
-  = @post.longitude
-p
-  strong User:
-  = @post.user_id
-
-= link_to 'Edit', edit_post_path(@post)
-'|
-= link_to 'Back', posts_path
+p= @post.content.bbcode_to_html_with_formatting(Photo.img_tag).html_safe

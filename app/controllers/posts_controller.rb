@@ -27,6 +27,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
+    @photos = Photo.order("created_at desc")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,7 +37,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
+    @photos = Photo.order("created_at desc")
   end
 
   # POST /posts
@@ -58,7 +60,7 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
