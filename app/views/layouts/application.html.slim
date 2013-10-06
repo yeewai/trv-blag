@@ -7,7 +7,7 @@ html
     = csrf_meta_tags
   body id=="#{controller.controller_name}_#{controller.action_name}"
     .container
-      .row-fluid
+      .row-fluid.header
         -if current_user
           .nav.nav-pills.pull-right
             -if @post && @post.id
@@ -15,5 +15,7 @@ html
             li=link_to "Create a new post", new_post_path
             li=link_to "Logout", sessions_logout_path
         h1=link_to "Deutschland, Deutschland", root_path
+        = gmaps4rails(post_gmap)
       == yield
       footer
+      = yield :scripts

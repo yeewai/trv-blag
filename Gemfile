@@ -64,6 +64,7 @@ gem 'will_paginate-bootstrap'
 
 # Geo locations
 gem "geocoder"
+gem 'gmaps4rails'
 gem 'exifr', :git => 'git://github.com/picuous/exifr.git'
 
 #paperclip

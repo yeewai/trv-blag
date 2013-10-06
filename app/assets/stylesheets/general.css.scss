@@ -11,7 +11,10 @@ p {
 }
 
 h2 { font-weight: 300;}
-
+h3 {
+  font-weight: 200;
+  margin-bottom: 0;
+}
 
 .post {
   input {height: auto;}
@@ -28,4 +31,8 @@ h2 { font-weight: 300;}
     font-weight: 200;
     display: inline-block;
   }
+}
+
+.header {
+  img { max-width: none; }
 }
