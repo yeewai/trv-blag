@@ -3,20 +3,8 @@ class Photo < ActiveRecord::Base
   
   #after_save :grab_geotag
   
-  has_attached_file :photo, :styles => { :thumb => "100x100>" }, :path=> ':rails_root/public/system/:class/:style/:id-:filename', :url=> '/system/:class/:style/:id-:filename'
+  has_attached_file :photo, :styles => { :thumb => "100x100>", :medium=>"600x400>" }, :path=> ':rails_root/public/system/:class/:style/:id-:filename', :url=> '/system/:class/:style/:id-:filename'
   validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
-  
-  def self.img_tag 
-    {
-      'Photo' => [
-        /\[photo(:.*)?\](.*?)\[\/photo\1?\]/mi,
-        lambda{ |e| "<img src='#{Photo.find(e[2]).photo.url}' />" },
-        'Photo from ID',
-        '[photo]\1[/photo]',
-        :photo
-      ]
-    }
-  end
   
   private
   def grab_geotag

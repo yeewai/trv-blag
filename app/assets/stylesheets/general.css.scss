@@ -1,3 +1,31 @@
+small {
+  color: grey;
+  padding-left: 4px;
+  font-weight: 200;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 200;
+  padding-left: 4px;
+}
+
+h2 { font-weight: 300;}
+
+
 .post {
   input {height: auto;}
+}
+
+.posts {
+  margin-bottom: 24px;
+}
+
+.page {
+  text-align: center;
+  .pagination {
+    font-size: 16px;
+    font-weight: 200;
+    display: inline-block;
+  }
 }

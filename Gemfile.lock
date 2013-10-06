@@ -79,9 +79,6 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
-    kaminari (0.14.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -165,6 +162,9 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    will_paginate (3.0.4)
+    will_paginate-bootstrap (0.2.5)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
@@ -181,7 +181,6 @@ DEPENDENCIES
   geocoder
   jquery-fileupload-rails
   jquery-rails
-  kaminari
   paperclip
   railroady
   rails (= 3.2.13)
@@ -193,3 +192,5 @@ DEPENDENCIES
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0)
+  will_paginate-bootstrap

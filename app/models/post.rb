@@ -9,6 +9,29 @@ class Post < ActiveRecord::Base
     slug
   end
   
+  def cutcontent
+    content.gsub(/(\[cut\].+)/, "[url=/posts/#{self.slug}]Read more[/url]")
+  end
+  
+  def self.bbtags 
+    {
+      'Photo' => [
+        /\[photo(:.*)?\](.*?)\[\/photo\1?\]/mi,
+        lambda{ |e| "<img src='#{Photo.find(e[2]).photo.url}' />" },
+        'Photo from ID',
+        '[photo]\1[/photo]',
+        :photo
+      ],
+      'Cut' => [
+        /\[cut(:.*)?\]/mi,
+        '',
+        'Add a cut to the post',
+        '[cut]',
+        :cut
+      ]
+    }
+  end
+  
   before_save :generate_slug
   
   private

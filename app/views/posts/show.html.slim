@@ -1,13 +1,5 @@
-p#notice = notice
-
-h2
-  = @post.title
-small 
-  | Written by 
-  =@post.user.name
-  |  on 
-  =translate_time @post.created_at
-  br
-  | At: 
-  = @post.address
-p= @post.content.bbcode_to_html_with_formatting(Photo.img_tag).html_safe
+.row-fluid
+  .span2
+  .span8
+    p#notice = notice
+    ==render 'single', :post=>@post, :withcut => false

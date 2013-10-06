@@ -1,33 +1,8 @@
-h1 Listing posts
-
-table
-  tr
-    th Title
-    th Slug
-    th Content
-    th User
-    th Address
-    th Latitude
-    th Longitude
-    th User
-    th
-    th
-    th
-
-  - @posts.each do |post|
-    tr
-      td = post.title
-      td = post.slug
-      td = post.content
-      td = post.user_id
-      td = post.address
-      td = post.latitude
-      td = post.longitude
-      td = post.user_id
-      td = link_to 'Show', post
-      td = link_to 'Edit', edit_post_path(post)
-      td = link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Post', new_post_path
+.row-fluid
+  .span2
+  .span8
+    - @posts.each do |post|
+      .posts
+        ==render 'single', :post => post, :withcut => true
+    .page
+      = will_paginate @posts, :page_links => false, renderer: BootstrapPagination::Rails

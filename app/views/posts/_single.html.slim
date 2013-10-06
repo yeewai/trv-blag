@@ -1,0 +1,16 @@
+h2
+  = link_to post.title, post
+small 
+  | Written by 
+  =post.user.name
+  |  on 
+  =translate_time post.created_at
+br
+small
+  | At: 
+  = post.address
+p
+  -if withcut
+    =post.cutcontent.bbcode_to_html_with_formatting(Post.bbtags).html_safe
+  -else
+    =post.content.bbcode_to_html_with_formatting(Post.bbtags).html_safe

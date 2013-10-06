@@ -59,7 +59,8 @@ gem 'bb-ruby'
 gem "squeel"
 
 # Paginations
-gem 'kaminari'
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 
 # Geo locations
 gem "geocoder"
