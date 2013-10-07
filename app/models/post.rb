@@ -28,7 +28,7 @@ class Post < ActiveRecord::Base
         :photo
       ],
       'Cut' => [
-        /\[cut(:.*)?\]/mi,
+        /\[cut?\]/mi,
         '',
         'Add a cut to the post',
         '[cut]',

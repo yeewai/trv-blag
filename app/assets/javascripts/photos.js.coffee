@@ -52,4 +52,4 @@ jQuery ->
   setFileUpload()
   
   $(".thumbnails li").click ->
-    insertAtCaret('post_content','[img]' + $(this).data("photo") + '[/img]')
+    insertAtCaret('post_content','[photo]' + $(this).data("photo") + '[/photo]')
