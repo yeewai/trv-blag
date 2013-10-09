@@ -20,7 +20,7 @@ setFileUpload = ->
         progress = parseInt(data.loaded / data.total * 100, 10)
         data.context.find('.bar').css('width', progress + '%')
 
-insertAtCaret = (areaId, text) ->
+window.insertAtCaret = (areaId, text) ->
   txtarea = document.getElementById(areaId)
   scrollPos = txtarea.scrollTop
   strPos = 0

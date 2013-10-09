@@ -2,4 +2,9 @@
   alert('Failed');
 <% else %>
   $('ul.thumbnails').prepend("<%=j render partial: 'thumb', locals: { photo: @photo } %>");
+  $(".thumbnails li").unbind('click');
+  $(".thumbnails li").click(function() {
+    return insertAtCaret('post_content', '[photo]' + $(this).data("photo") + '[/photo]');
+  });
+  
 <% end %>
