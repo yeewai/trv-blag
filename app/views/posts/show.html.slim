@@ -2,4 +2,30 @@
   .span2
   .span8
     p#notice = notice
-    ==render 'single', :post=>@post, :withcut => false
+    ==render 'posts/single', :post=>@post, :withcut => false
+    h3 Comments
+    ul#comments
+      -@post.comments.each do |comment|
+        li
+          strong 
+            = comment.name
+            small =translate_time comment.created_at
+          p = comment.content.bbcode_to_html_with_formatting.html_safe
+    =form_for @comment, :html=>{:class=>"form-horizontal"} do |f|
+      - if @comment.errors.any?
+        .alert#error_explanation
+          h5 = "#{pluralize(@comment.errors.count, "error")} prohibited this post from being saved:"
+          ul
+            - @comment.errors.full_messages.each do |message|
+              li = message
+      =f.hidden_field :ip, :value => request.remote_ip
+      =f.hidden_field :post_id, :value => @post.id
+      .control-group
+        = f.label :name, :class=>"control-label"
+        .controls
+          =f.text_field :name, :class=>"span8"
+      .control-group
+        = f.label :content, :class=>"control-label"
+        .controls
+          =f.text_area :content, :class=>"span8"
+      =f.submit :class=> "btn"

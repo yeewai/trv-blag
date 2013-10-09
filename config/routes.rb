@@ -4,7 +4,8 @@ Deutschland::Application.routes.draw do
   post "sessions/create"
   get "sessions/logout"
 
-  resources :posts
+  resources :posts, :except => ["destroy"]
+  resources :comments, :only => ["create"]
   resources :photos, :only => ["index", "create", "destroy"]
 
 

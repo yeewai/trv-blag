@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   attr_accessible :address, :content, :latitude, :longitude, :slug, :title, :user_id
   belongs_to :user
+  has_many :comments
   
   geocoded_by :address
   after_validation :geocode
