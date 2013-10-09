@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment])
     @post = @comment.post
+    cookies.permanent[:name] = {:value => @comment.name}
 
     respond_to do |format|
       if @comment.save

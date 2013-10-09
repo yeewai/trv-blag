@@ -23,7 +23,7 @@
       .control-group
         = f.label :name, :class=>"control-label"
         .controls
-          =f.text_field :name, :class=>"span8"
+          =f.text_field :name, :value=> cookies[:name], :class=>"span8"
       .control-group
         = f.label :content, :class=>"control-label"
         .controls
