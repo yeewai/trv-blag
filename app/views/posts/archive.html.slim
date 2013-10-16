@@ -1,0 +1,18 @@
+.row-fluid
+  .span2
+  .span8
+    - @posts.each do |post|
+      .posts
+        h2
+          = link_to post.title, post
+        small 
+          | Written by 
+          =post.user.name
+          |  on 
+          =translate_time post.created_at
+        br
+        small
+          | At: 
+          = post.address
+        br
+        small =link_to "#{post.comments.size} #{"comment".pluralize post.comments.size}", post

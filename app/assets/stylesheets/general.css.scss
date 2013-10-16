@@ -48,3 +48,10 @@ footer {text-align: center;}
 .header {
   img { max-width: none; }
 }
+
+
+//Photos
+ul.thumbnails{
+  height: 600px;
+  overflow-y: auto;
+}

@@ -3,6 +3,8 @@ Deutschland::Application.routes.draw do
   get "sessions/login"
   post "sessions/create"
   get "sessions/logout"
+  
+  get 'archive' => "posts#archive", :as =>"archive"
 
   resources :posts, :except => ["destroy"]
   resources :comments, :only => ["create"]
