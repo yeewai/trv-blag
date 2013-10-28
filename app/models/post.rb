@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
   end
   
   def cutcontent
-    content.gsub(/(\[cut\].+)/, "[url=/posts/#{self.slug}]Read more[/url]")
+    content.gsub(/(\[cut\].+)/mi, "[url=/posts/#{self.slug}]Read more[/url]")
   end
   
   def tag_names
