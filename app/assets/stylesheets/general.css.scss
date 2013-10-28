@@ -54,4 +54,15 @@ footer {text-align: center;}
 ul.thumbnails{
   height: 600px;
   overflow-y: auto;
+  width:100%;
+  margin: 0;
+  
+  li {
+    margin: 2%;
+    float: left;
+    width: 45%;
+    word-break: break-all;
+    
+    .ref {font-size: 10px;}
+  }
 }
