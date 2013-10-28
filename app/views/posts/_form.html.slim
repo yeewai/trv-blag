@@ -18,5 +18,10 @@
     = f.label :address, "Location", :class=> "control-label"
     .controls
       = f.text_field :address, :class=> "span6"
+      
+  .control-group
+    = f.label :tag_names, "Tags", :class=> "control-label"
+    .controls
+      = f.text_field :tag_names, :class=> "span6"
   =f.hidden_field :user_id, :value => current_user.id
   = f.submit 'Save', :class=> "btn btn-primary pull-right"

@@ -1,6 +1,8 @@
 .row-fluid
   .span2
   .span8
+    -if @tag
+      h3 = "Posts tagged #{@tag.name}"
     - @posts.each do |post|
       .posts
         ==render 'single', :post => post, :withcut => true

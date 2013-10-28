@@ -10,6 +10,16 @@ class PostsController < ApplicationController
   def archive
     @posts = Post.order("created_at desc")
   end
+  
+  def tagged
+    @tag = Tag.find_by_slug params[:tag]
+    if @tag
+      @posts = @tag.posts.order("created_at desc").paginate(:page => params[:page], :per_page => 5)
+    else
+      @posts = nil
+    end
+    render "index"
+  end
 
   # GET /posts/1
   # GET /posts/1.json

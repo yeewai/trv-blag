@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
-  attr_accessible :address, :content, :latitude, :longitude, :slug, :title, :user_id
+  attr_accessible :address, :content, :latitude, :longitude, :slug, :title, :user_id, :tags, :tag_names
   belongs_to :user
   has_many :comments
+  has_and_belongs_to_many :tags
   
   geocoded_by :address
   after_validation :geocode
@@ -17,6 +18,20 @@ class Post < ActiveRecord::Base
   
   def cutcontent
     content.gsub(/(\[cut\].+)/, "[url=/posts/#{self.slug}]Read more[/url]")
+  end
+  
+  def tag_names
+    self.tags.map{|t| t.name}.compact.uniq.join(", ")
+  end
+  
+  def tag_names=(names)
+    self.tags.clear
+    names.split(",").each do |n|
+      t = Tag.find_or_create_by_name n
+      if !self.tags.include?(t)
+        self.tags << t
+      end
+    end
   end
   
   def self.bbtags 

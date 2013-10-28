@@ -15,4 +15,8 @@ p
   -else
     =post.content.bbcode_to_html_with_formatting(Post.bbtags).html_safe
 
-small =link_to "#{post.comments.size} #{"comment".pluralize post.comments.size}", post
+small 
+  =link_to "#{post.comments.size} #{"comment".pluralize post.comments.size}", post
+  =" / Tags: " if post.tags.length > 0
+  -post.tags.each do |tag|
+    =link_to tag.name, tagged_path(tag.slug)

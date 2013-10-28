@@ -5,7 +5,8 @@ Deutschland::Application.routes.draw do
   get "sessions/logout"
   
   get 'archive' => "posts#archive", :as =>"archive"
-
+  get "tagged/:tag" => 'posts#tagged', :as => "tagged"
+  
   resources :posts, :except => ["destroy"]
   resources :comments, :only => ["create"]
   resources :photos, :only => ["index", "create", "destroy"]
