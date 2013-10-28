@@ -6,6 +6,7 @@ Deutschland::Application.routes.draw do
   
   get 'archive' => "posts#archive", :as =>"archive"
   get "tagged/:tag" => 'posts#tagged', :as => "tagged"
+  #get "tags_list" => 'posts#tags_list', :as=>"tags"
   
   resources :posts, :except => ["destroy"]
   resources :comments, :only => ["create"]

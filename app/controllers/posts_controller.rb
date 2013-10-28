@@ -18,8 +18,15 @@ class PostsController < ApplicationController
     else
       @posts = nil
     end
-    render "index"
+    render "posts/index"
   end
+  
+  #def tags_list
+  #  #term = "%#{params[:term]}%"
+  #  #terms = Tag.where{name =~ term}.select{|t| t.posts.length > 0}
+  #  terms = Tag.all.order "name"
+  #  render json: terms.map(&:name).uniq
+  #end
 
   # GET /posts/1
   # GET /posts/1.json
@@ -67,6 +74,7 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
+        @photos = Photo.order("created_at desc")
         format.html { render action: "edit" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end

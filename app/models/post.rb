@@ -27,7 +27,7 @@ class Post < ActiveRecord::Base
   def tag_names=(names)
     self.tags.clear
     names.split(",").each do |n|
-      t = Tag.find_or_create_by_name n
+      t = Tag.find_or_create_by_name n.squish
       if !self.tags.include?(t)
         self.tags << t
       end

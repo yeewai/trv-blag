@@ -17,6 +17,6 @@ p
 
 small 
   =link_to "#{post.comments.size} #{"comment".pluralize post.comments.size}", post
-  =" / Tags: " if post.tags.length > 0
+  =" // Tags: " if post.tags.length > 0
   -post.tags.each do |tag|
-    =link_to tag.name, tagged_path(tag.slug)
+    .tag =link_to tag.name, tagged_path(tag.slug)

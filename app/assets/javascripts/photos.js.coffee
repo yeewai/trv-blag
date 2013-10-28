@@ -48,8 +48,42 @@ window.insertAtCaret = (areaId, text) ->
     txtarea.focus()
   txtarea.scrollTop = scrollPos
 
+
+#split = (val) ->
+#  val.split /,\s*/
+#extractLast = (term) ->
+#  split(term).pop()
+#setAutoComplete = ->
+#  $("input.autocomplete").each ->
+#    src = $(this).data("source")
+#    $(this).autocomplete
+#      source: (request, response) ->
+#        $.getJSON src,
+#          term: extractLast(request.term)
+#        , response
+#
+#      search: ->
+#        # custom minLength
+#        term = extractLast(@value)
+#
+#      focus: ->
+#        # prevent value inserted on focus
+#        false
+#
+#      select: (event, ui) ->
+#        terms = split(@value)
+#        # remove the current input
+#        terms.pop()
+#        # add the selected item
+#        terms.push ui.item.value
+#        # add placeholder to get the comma-and-space at the end
+#        terms.push ""
+#
+#        
+#        @value = terms.join(", ")
 jQuery ->
   setFileUpload()
+  #setAutoComplete()
   
   $(".thumbnails li").click ->
     insertAtCaret('post_content','[photo]' + $(this).data("photo") + '[/photo]')
